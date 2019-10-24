@@ -1,0 +1,1 @@
+# Vagrantfile 사례모음
