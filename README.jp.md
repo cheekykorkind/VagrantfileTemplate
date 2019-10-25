@@ -1,0 +1,1 @@
+# Vagrantfile 例の集め
