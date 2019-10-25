@@ -1,7 +1,0 @@
-configs:
-  use: 'home'
-  ip:
-    private: '192.168.2.117'
-  user:
-    linux: '192.168.1.117'
-    samba: '192.168.1.117'
