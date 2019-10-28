@@ -1,0 +1,6 @@
+############
+# .gitconfig
+############
+gitconfig:
+  name: "your git user name"
+  email: "your git user email"

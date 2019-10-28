@@ -1,0 +1,26 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+require 'yaml'
+local_envs = YAML.load_file 'local_env.yaml'
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+  config.vm.provider "virtualbox" do |v|
+    v.name = "centos_7_env-test"
+  end
+
+  config.vm.network :forwarded_port, host: 2233, guest: 22
+  config.vm.network "private_network", ip: "192.168.33.23"
+
+  # copy config files into VM
+  config.vm.provision "file", source: "config/resolv.conf", destination: "config/resolv.conf"
+
+  # Run scripts for all VMs  
+  config.vm.provision :shell, path: 'scripts/common.sh'
+  config.vm.provision :shell, path: 'scripts/create_linux_user.sh'
+  config.vm.provision :shell, path: 'scripts/set_samba.sh'
+  config.vm.provision :shell, path: 'scripts/set_docker_compose.sh'
+  config.vm.provision :shell, path: 'scripts/set_git.sh', args: [local_envs['gitconfig']['name'], local_envs['gitconfig']['email']]
+  config.vm.provision :shell, path: 'scripts/clean_up.sh'
+end
