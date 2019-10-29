@@ -4,3 +4,16 @@
 gitconfig:
   name: "your git user name"
   email: "your git user email"
+
+############
+# CentOS user
+############
+centos:
+  user_name: "your CentOS user name"
+  user_password: "your CentOS user password"
+
+############
+# VM
+############
+vm:
+  name: "your vm name"

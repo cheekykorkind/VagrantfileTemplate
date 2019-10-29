@@ -1,11 +1,13 @@
 #!/bin/bash
 
+centos_user_name=$1
+
 # Docker install
 yum -y install yum-utils device-mapper-persistent-data lvm2
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum -y install docker-ce
 
-sudo -u newuser /bin/bash <<\NEWUSER_BLOCK
+sudo -u ${centos_user_name} /bin/bash <<\NEWUSER_BLOCK
 sudo usermod -aG docker $(whoami)
 exit
 NEWUSER_BLOCK

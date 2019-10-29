@@ -4,10 +4,17 @@
 require 'yaml'
 local_envs = YAML.load_file 'local_env.yaml'
 
+# converted = local_envs.each_pair { |key, value| local_envs[key] = value.to_a }
+# puts converted.values[0]
+
+# puts local_envs.values[0].class
+
+# abort 
+
 Vagrant.configure("2") do |config|
   config.vm.box = "centos/7"
   config.vm.provider "virtualbox" do |v|
-    v.name = "centos_7_env-test"
+    v.name = local_envs['vm']['name']
   end
 
   config.vm.network :forwarded_port, host: 2233, guest: 22
@@ -17,10 +24,10 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "config/resolv.conf", destination: "config/resolv.conf"
 
   # Run scripts for all VMs  
-  config.vm.provision :shell, path: 'scripts/common.sh'
-  config.vm.provision :shell, path: 'scripts/create_linux_user.sh'
-  config.vm.provision :shell, path: 'scripts/set_samba.sh'
-  config.vm.provision :shell, path: 'scripts/set_docker_compose.sh'
-  config.vm.provision :shell, path: 'scripts/set_git.sh', args: [local_envs['gitconfig']['name'], local_envs['gitconfig']['email']]
+  config.vm.provision :shell, path: 'scripts/common.sh'  
+  config.vm.provision :shell, path: 'scripts/create_linux_user.sh', args: [local_envs['centos']['user_name'], local_envs['centos']['user_password']]
+  config.vm.provision :shell, path: 'scripts/set_samba.sh', args: [local_envs['centos']['user_name'], local_envs['centos']['user_password']]
+  config.vm.provision :shell, path: 'scripts/set_docker_compose.sh', args: local_envs['centos']['user_name']
+  config.vm.provision :shell, path: 'scripts/set_git.sh', args: [local_envs['gitconfig']['name'], local_envs['gitconfig']['email'], local_envs['vm']['name'], local_envs['centos']['user_name']]
   config.vm.provision :shell, path: 'scripts/clean_up.sh'
 end
