@@ -1,19 +1,26 @@
 ############
-# .gitconfig
+# .ssh
 ############
-gitconfig:
-  name: "your git user name"
-  email: "your git user email"
+SSH:
+  CENTOS_USER_NAME: "your CentOS user name"
+  VM_NAME: "your vm name"
+
+############
+# gitconfig
+############
+GIT:
+  GIT_NAME: "your git user name"
+  GIT_EMAIL: "your git user email"
 
 ############
 # CentOS user
 ############
-centos:
-  user_name: "your CentOS user name"
-  user_password: "your CentOS user password"
+CENTOS:
+  CENTOS_USER_NAME: "your CentOS user name"
+  CENTOS_USER_PASSWORD: "your CentOS user password"
 
 ############
 # VM
 ############
-vm:
-  name: "your vm name"
+VM:
+  VM_NAME: "your vm name"

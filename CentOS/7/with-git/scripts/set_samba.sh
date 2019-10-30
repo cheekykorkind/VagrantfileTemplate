@@ -1,12 +1,8 @@
 #!/bin/bash
 
-centos_user_name=$1
-centos_user_password=$2
-
 yum -y install samba
-(echo ${centos_user_password}; echo ${centos_user_password}) | smbpasswd -s -a ${centos_user_name}
+(echo $CENTOS_USER_PASSWORD; echo $CENTOS_USER_PASSWORD) | smbpasswd -s -a $CENTOS_USER_NAME
 
-# cp config/smb.conf /etc/samba/smb.conf
 cat <<EOF >/etc/samba/smb.conf
 [global]
         smb ports = 445
@@ -17,7 +13,7 @@ cat <<EOF >/etc/samba/smb.conf
         writable = yes
 EOF
 
-sudo -u ${centos_user_name} /bin/bash <<\NEWUSER_BLOCK
+sudo -u $CENTOS_USER_NAME /bin/bash <<\NEWUSER_BLOCK
 sudo yum -y provides /usr/sbin/semanage
 
 sudo yum -y install policycoreutils-python

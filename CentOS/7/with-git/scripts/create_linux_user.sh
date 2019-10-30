@@ -1,10 +1,7 @@
 #!/bin/bash
 
-centos_user_name=$1
-centos_user_password=$2
-
 echo "useradd"
-useradd --create-home --shell /bin/bash -G wheel,root ${centos_user_name}
+useradd --create-home --shell /bin/bash -G wheel,root $CENTOS_USER_NAME
 echo '%wheel ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-echo ${centos_user_password} | passwd ${centos_user_name} --stdin
+echo $CENTOS_USER_PASSWORD | passwd $CENTOS_USER_NAME --stdin
