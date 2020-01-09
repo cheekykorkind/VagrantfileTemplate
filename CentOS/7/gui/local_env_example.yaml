@@ -1,0 +1,29 @@
+# make local_env.yaml based on this file
+
+############
+# .ssh
+############
+SSH:
+  CENTOS_USER_NAME: "example_user" # WRITE CENTOS USER NAME
+  VM_NAME: "example_centos7_gui" # WRITE VM NAME
+
+############
+# gitconfig
+############
+GIT:
+  GIT_NAME: "example_github_user" # WRITE YOUR GITHUB USER NAME
+  GIT_EMAIL: "example_github_user@example.com" # WRITE YOUR GITHUB EMAIL
+
+
+############
+# CentOS user
+############
+CENTOS:
+  CENTOS_USER_NAME: "example_user" # WRITE CENTOS USER NAME WHATEVER YOU LIKE
+  CENTOS_USER_PASSWORD: "example_password" # WRITE VM NAME WHATEVER YOU LIKE
+
+############
+# VM
+############
+VM:
+  VM_NAME: "example_centos7_gui" # WRITE VM NAME WHATEVER YOU LIKE
