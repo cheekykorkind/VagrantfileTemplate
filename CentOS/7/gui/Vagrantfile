@@ -17,10 +17,10 @@ Vagrant.configure("2") do |config|
 
   # Run scripts for all VMs  
   config.vm.provision :shell, path: 'scripts/common.sh'
-  config.vm.provision :shell, path: 'scripts/set_gui.sh'
   config.vm.provision :shell, path: 'scripts/create_linux_user.sh', env: local_envs['CENTOS']
   config.vm.provision :shell, path: 'scripts/set_samba.sh', env: local_envs['CENTOS']
   config.vm.provision :shell, path: 'scripts/set_docker_compose.sh', env: local_envs['CENTOS']
   config.vm.provision :shell, path: 'scripts/set_git.sh', env: local_envs['GIT']
   config.vm.provision :shell, path: 'scripts/set_ssh.sh', env: local_envs['SSH']
+  config.vm.provision :shell, path: 'scripts/set_gui.sh'
 end
