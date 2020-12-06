@@ -1,0 +1,26 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+require 'yaml'
+local_envs = YAML.load_file 'local_env.yaml'
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "kalilinux/rolling"
+
+  config.vm.provider "virtualbox" do |v|
+    v.name = local_envs['VM']['VM_NAME']
+    v.cpus = 4
+    v.memory = 4096
+  end
+
+  config.vm.network :forwarded_port, host: 2234, guest: 22
+  config.vm.network "private_network", ip: "192.168.33.16"
+
+  # Run scripts for all VMs
+  config.vm.provision :shell, path: 'scripts/common.sh'
+  config.vm.provision :shell, path: 'scripts/create_linux_user.sh', env: local_envs['Kali']
+  config.vm.provision :shell, path: 'scripts/set_samba.sh', env: local_envs['Kali']
+  config.vm.provision :shell, path: 'scripts/set_docker_compose.sh', env: local_envs['Kali']
+  config.vm.provision :shell, path: 'scripts/set_git.sh', env: local_envs['GIT']
+  config.vm.provision :shell, path: 'scripts/set_ssh.sh', env: local_envs['SSH']
+end
