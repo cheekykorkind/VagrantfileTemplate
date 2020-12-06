@@ -1,0 +1,26 @@
+############
+# .ssh
+############
+SSH:
+  KALI_USER_NAME: "your Kali user name"
+  VM_NAME: "your vm name"
+
+############
+# gitconfig
+############
+GIT:
+  GIT_NAME: "your git user name"
+  GIT_EMAIL: "your git user email"
+
+############
+# Kali user
+############
+Kali:
+  KALI_USER_NAME: "your Kali user name"
+  KALI_USER_PASSWORD: "your Kali user password"
+
+############
+# VM
+############
+VM:
+  VM_NAME: "your vm name"
