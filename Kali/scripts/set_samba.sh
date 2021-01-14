@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt install -y samba ufw
+apt install -y samba
 
 (echo $KALI_USER_PASSWORD; echo $KALI_USER_PASSWORD) | smbpasswd -s -a $KALI_USER_NAME
 
@@ -19,11 +19,4 @@ systemctl start smbd
 systemctl enable smbd
 systemctl restart smbd
 
-ufw allow 22
-ufw allow 139
-ufw allow 445
-ufw allow 3000
-ufw allow 3001
-(echo "y") | ufw enable
-ufw reload
-ufw status
+# you can use samba after reboot. And sometime you need to edit /etc/reslove.conf 8.8.8.8
