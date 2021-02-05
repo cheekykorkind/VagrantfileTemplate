@@ -1,6 +1,10 @@
 [한국어](README.kr.md)
 [日本語](README.jp.md)
-# CentOS7 with-git
+# CentOS7 headless
+
+## consider install vagrant plugin
+vagrant plugin install vagrant-vbguest
+vagrant plugin install vagrant-disksize
 
 ## consider changing some items
 1. cp local_env_example.yaml local_env.yaml 
