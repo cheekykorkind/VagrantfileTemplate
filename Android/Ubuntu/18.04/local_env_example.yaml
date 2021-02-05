@@ -1,0 +1,26 @@
+############
+# .ssh
+############
+SSH:
+  USER_NAME: "your Ubuntu user name"
+  VM_NAME: "your vm name"
+
+############
+# gitconfig
+############
+GIT:
+  GIT_NAME: "your git user name"
+  GIT_EMAIL: "your git user email"
+
+############
+# Ubuntu user
+############
+Ubuntu:
+  USER_NAME: "your Ubuntu user name"
+  USER_PASSWORD: "your Ubuntu user password"
+
+############
+# VM
+############
+VM:
+  VM_NAME: "your vm name"
