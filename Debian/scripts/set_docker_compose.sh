@@ -1,4 +1,5 @@
 #!/bin/bash
+
 apt-get update
 apt-get install -y ca-certificates curl gnupg
 
@@ -22,3 +23,5 @@ newgrp docker
 
 systemctl enable docker.service
 systemctl start docker.service
+
+echo "✅ set_docker_compose.sh is done"

@@ -21,4 +21,4 @@ EOF
 chmod 700 -R /home/$DEBIAN_USER_NAME/.ssh/
 chown $DEBIAN_USER_NAME:$DEBIAN_USER_NAME -R /home/$DEBIAN_USER_NAME/.ssh/
 
-echo "setting .ssh is done"
+echo "✅ set_ssh.sh is done"

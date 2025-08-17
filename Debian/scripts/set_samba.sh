@@ -20,3 +20,4 @@ systemctl enable smbd
 systemctl restart smbd
 
 # you can use samba after reboot. And sometime you need to edit /etc/reslove.conf 8.8.8.8
+echo "✅ set_samba.sh is done"

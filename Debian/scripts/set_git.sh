@@ -8,14 +8,14 @@ git config --global user.email $GIT_EMAIL
 git config --global color.ui auto
 git config --global color.ui true
 
-echo "setting .gitconfig is done"
+echo "✅ setting .gitconfig is done"
 
 MARKER="# Git branch in prompt (auto-added)"
-if grep -qF "$MARKER" ~/.bashrc; then
+if grep -qF "$MARKER" /home/$DEBIAN_USER_NAME/.bashrc; then
     echo "✅ The Git branch display setting already exists in the ~/.bashrc file."
 else
     echo "🔧 Adding Git branch display configuration to ~/.bashrc..."
-    cat << 'EOF' >> ~/.bashrc
+    cat << 'EOF' >> /home/$DEBIAN_USER_NAME/.bashrc
 
 # Git branch in prompt (auto-added)
 parse_git_branch() {
@@ -25,3 +25,5 @@ export PS1="\u@\h:\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\]$ "
 EOF
     echo "✅ Git branch display Configuration successfully added."
 fi
+
+echo "✅ set_git.sh is done"
